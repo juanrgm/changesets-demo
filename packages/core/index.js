@@ -1,1 +1,5 @@
-console.log('core 1')
+const counter = 0;
+
+counter += 1;
+
+console.log('counter: ' + counter)
