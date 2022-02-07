@@ -1,5 +1,5 @@
 const counter = 0;
 
-counter += 2;
+counter += 3;
 
 console.log('counter: ' + counter)
