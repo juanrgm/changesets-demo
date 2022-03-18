@@ -1,6 +1,6 @@
 {
     "name": "@juanrgm-org/core",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "main": "index.js",
     "dependencies": {
         "@juanrgm-org/base": "1.0.1"
