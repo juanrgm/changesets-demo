@@ -1,5 +1,11 @@
 # @juanrgm-org/core
 
+## 2.0.0
+
+### Major Changes
+
+- [`6aed683`](https://github.com/juanrgm/changesets-demo/commit/6aed683e8e94abf8b25c7bbc7735ab164bdaf599) Thanks [@juanrgm](https://github.com/juanrgm)! - Bump
+
 ## 1.0.3
 
 ### Patch Changes
