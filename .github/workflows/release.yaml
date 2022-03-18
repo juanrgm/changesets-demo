@@ -19,9 +19,17 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Release Pull Request or Publish to npm
+        id: changesets
         uses: changesets/action@v1
         with:
           publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Debug
+        env:
+          X_PUBLISHED: ${{ steps.changesets.outputs.published }}
+          X_PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+        run: |-
+          echo $X_PUBLISHED
+          echo $X_PUBLISHED_PACKAGES
