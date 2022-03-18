@@ -1,5 +1,6 @@
 {
   "name": "changesets-demo",
+  "description": "test",
   "private": true,
   "scripts": {
     "changeset": "changeset",
