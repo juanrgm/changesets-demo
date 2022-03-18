@@ -1,5 +1,11 @@
 # @juanrgm-org/core
 
+## 1.0.3
+
+### Patch Changes
+
+- [`5661f17`](https://github.com/juanrgm/changesets-demo/commit/5661f17a5a866e5a3ba392ff243511ccca3e5bd8) Thanks [@juanrgm](https://github.com/juanrgm)! - Sum 5
+
 ## 1.0.2
 
 ### Patch Changes
