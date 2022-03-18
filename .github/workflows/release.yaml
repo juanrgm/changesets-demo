@@ -34,7 +34,7 @@ jobs:
           echo $X_PUBLISHED
           echo $X_PUBLISHED_PACKAGES
       - name: Deploy gh-pages
-        if: steps.changesets.outputs.publishedPackages == 'true'
+        if: steps.changesets.outputs.published == 'true'
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
