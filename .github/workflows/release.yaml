@@ -26,15 +26,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Debug
+      - name: Build meta
+        id: published
+        uses: actions/github-script@v5
         env:
-          X_PUBLISHED: ${{ steps.changesets.outputs.published }}
-          X_PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
-        run: |-
-          echo $X_PUBLISHED
-          echo $X_PUBLISHED_PACKAGES
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+        with:
+          script: |-
+            const published = JSON.parse(process.env.PUBLISHED_PACKAGES);
+            published.forEach(({ name }) => core.setOutput(name, 'true'));
       - name: Deploy gh-pages
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.published.outputs['@juanrgm-org/internal'] == 'true'
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
