@@ -34,9 +34,9 @@ jobs:
         with:
           script: |-
             const published = JSON.parse(process.env.PUBLISHED_PACKAGES);
-            published.forEach(({ name }) => core.setOutput(name, 'true'));
+            published.forEach(({ name }) => core.setOutput(name.split('/').pop(), 'true'));
       - name: Deploy gh-pages
-        if: steps.published.outputs['@juanrgm-org/internal'] == 'true'
+        if: steps.published.outputs.internal == 'true'
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
