@@ -1,5 +1,11 @@
 # @juanrgm-org/internal
 
+## 1.0.3
+
+### Patch Changes
+
+- [`cc0b045`](https://github.com/juanrgm/changesets-demo/commit/cc0b045d084488773b2fbc907db75ee9eec129e4) Thanks [@juanrgm](https://github.com/juanrgm)! - test
+
 ## 1.0.2
 
 ### Patch Changes
