@@ -1,1 +1,1 @@
-console.log('internal package')
+console.log('internal package v1.0.2')
