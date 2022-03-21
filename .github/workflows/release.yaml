@@ -5,8 +5,7 @@ on:
       - main
 
 env:
-  PNPM_CACHE_FOLDER: .pnpm-store
-  PNPM_VERSION: 6.18.0
+  PNPM_VERSION: 6
 
 jobs:
   release:
@@ -19,17 +18,9 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_CACHE_FOLDER }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
       - uses: pnpm/action-setup@v2
         with:
           version: ${{ env.PNPM_VERSION }}
-      - name: Set pnpm store dir
-        run: printf '\nstore-dir=${{ env.PNPM_CACHE_FOLDER }}' >> $NPM_CONFIG_USERCONFIG
       - name: Install dependencies
         run: pnpm install
       - name: Create Release Pull Request or Publish to npm
