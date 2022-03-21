@@ -1,14 +1,23 @@
-const { readFileSync, writeFileSync} = require('fs')
+const { readFileSync, writeFileSync, mkdirSync, copyFileSync} = require('fs')
 
-const basePath = `${__dirname}/../packages/base/`
-const json = JSON.parse(readFileSync(basePath + "/package.json").toString())
 
-delete json.publishConfig;
+for (const name of ['base', 'core']) {
+    const basePath = `${__dirname}/../packages/${name}/`
 
-writeFileSync(basePath + "/lib/package.json", JSON.stringify(json, null, 2))
-console.log('Copied')
+    try { 
+        mkdirSync(basePath + "lib")
+    } catch(error) {
 
-console.log('#############base')
-console.log (readFileSync(basePath + "/package.json").toString())
-console.log('#############lib')
-console.log (readFileSync(basePath + "/lib/package.json").toString())
+    }
+
+    const json = JSON.parse(readFileSync(basePath + "/package.json").toString())
+
+    delete json.publishConfig;
+
+    writeFileSync(basePath + "/lib/package.json", JSON.stringify(json, null, 2))
+    copyFileSync(basePath + "/index.js", basePath + "/lib/index.js")
+    console.log ({
+        package: JSON.parse(readFileSync(basePath + "/package.json").toString()),
+        packageLib: JSON.parse(readFileSync(basePath + "/lib/package.json").toString())
+    })
+}
