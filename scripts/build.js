@@ -1,7 +1,11 @@
-const {copyFileSync, readFileSync} = require('fs')
+const { readFileSync, writeFileSync} = require('fs')
 
 const basePath = `${__dirname}/../packages/base/`
-copyFileSync(basePath + "/package.json", basePath + "/lib/package.json");
+const json = JSON.parse(readFileSync(basePath + "/package.json").toString())
+
+delete json.publishConfig;
+
+writeFileSync(basePath + "/lib/package.json", JSON.stringify(json, null, 2))
 console.log('Copied')
 
 console.log('#############base')
