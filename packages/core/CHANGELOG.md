@@ -1,5 +1,12 @@
 # @juanrgm-org/core
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`7b13a85`](https://github.com/juanrgm/changesets-demo/commit/7b13a8537306686fe4fc104c51268baa43885a26)]:
+  - @juanrgm-org/base@1.0.5
+
 ## 2.0.4
 
 ### Patch Changes
