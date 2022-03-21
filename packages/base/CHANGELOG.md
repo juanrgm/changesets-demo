@@ -1,5 +1,11 @@
 # @juanrgm-org/base
 
+## 1.0.7
+
+### Patch Changes
+
+- [`281c1a5`](https://github.com/juanrgm/changesets-demo/commit/281c1a54b22ed27b65020b838d0067f53d0c1529) Thanks [@juanrgm](https://github.com/juanrgm)! - CI
+
 ## 1.0.6
 
 ### Patch Changes
