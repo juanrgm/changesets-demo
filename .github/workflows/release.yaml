@@ -24,6 +24,14 @@ jobs:
         run: pnpm install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            email=my@email.com
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create release pull request or publish to npm
         id: changesets
         uses: changesets/action@v1
