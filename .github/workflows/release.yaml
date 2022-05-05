@@ -26,7 +26,7 @@ jobs:
         env:
           VAR: '[1,2,3]'
         with:
-          script: require('./test.js')
+          script: require('./.github/workflows/test.js')
       - name: Install dependencies
         run: pnpm install
       - name: build
