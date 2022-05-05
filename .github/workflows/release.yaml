@@ -26,7 +26,15 @@ jobs:
         env:
           VAR: '[1,2,3]'
         with:
-          script: require('./.github/workflows/test.js')
+          script: |
+            const metadata = require('./.github/workflows/test.js')
+            await metadata({ github, context, core })
+      - name: test1
+        if: steps.published.outputs['test'] == true
+        run: echo run1
+      - name: test2
+        if: steps.published.outputs['test'] == 'true'
+        run: echo run2
       - name: Install dependencies
         run: pnpm install
       - name: build
