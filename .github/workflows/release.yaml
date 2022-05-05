@@ -20,6 +20,13 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: ${{ env.PNPM_VERSION }}
+      - name: Build changesets meta
+        id: published
+        uses: actions/github-script@v5
+        env:
+          VAR: '[1,2,3]'
+        with:
+          script: require('./test.js')
       - name: Install dependencies
         run: pnpm install
       - name: build
